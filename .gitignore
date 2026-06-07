@@ -6,9 +6,6 @@ venv/
 __pycache__/
 *.pyc
 
-# Trained models
-*.pkl
-
 # Node
 node_modules/
 
