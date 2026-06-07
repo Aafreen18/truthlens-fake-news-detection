@@ -1,0 +1,189 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+
+    background: linear-gradient(
+        135deg,
+        #1e3c72,
+        #2a5298,
+        #4facfe
+    );
+
+    padding: 20px;
+}
+
+.container {
+    width: 100%;
+    max-width: 800px;
+}
+
+.card {
+    background: rgba(255, 255, 255, 0.15);
+
+    backdrop-filter: blur(15px);
+    -webkit-backdrop-filter: blur(15px);
+
+    border: 1px solid rgba(255, 255, 255, 0.2);
+
+    border-radius: 20px;
+
+    padding: 40px;
+
+    box-shadow:
+        0 8px 32px rgba(0, 0, 0, 0.25);
+}
+
+h1 {
+    text-align: center;
+    color: white;
+    margin-bottom: 10px;
+}
+
+.subtitle {
+    text-align: center;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: 35px;
+}
+
+.input-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    color: white;
+    margin-bottom: 8px;
+    font-weight: 600;
+}
+
+input,
+textarea {
+    width: 100%;
+    padding: 14px 16px;
+
+    border: none;
+    outline: none;
+
+    border-radius: 12px;
+
+    font-size: 16px;
+
+    background: rgba(255, 255, 255, 0.95);
+
+    transition: 0.3s;
+}
+
+input:focus,
+textarea:focus {
+    transform: translateY(-2px);
+
+    box-shadow:
+        0 0 0 3px rgba(255, 255, 255, 0.3);
+}
+
+textarea {
+    resize: vertical;
+}
+
+button {
+    width: 100%;
+
+    padding: 15px;
+
+    border: none;
+    border-radius: 12px;
+
+    font-size: 17px;
+    font-weight: 600;
+
+    cursor: pointer;
+
+    color: white;
+
+    background: linear-gradient(
+        135deg,
+        #00c853,
+        #00a844
+    );
+
+    transition: 0.3s;
+}
+
+button:hover {
+    transform: translateY(-3px);
+
+    box-shadow:
+        0 8px 20px rgba(0, 0, 0, 0.25);
+}
+
+button:disabled {
+    opacity: 0.7;
+    cursor: not-allowed;
+}
+
+#result {
+    margin-top: 25px;
+}
+
+.result-card {
+    padding: 18px;
+
+    border-radius: 12px;
+
+    text-align: center;
+
+    font-size: 18px;
+    font-weight: 700;
+}
+
+.real {
+    background: rgba(0, 200, 83, 0.15);
+    color: #00e676;
+    border: 2px solid #00e676;
+}
+
+.fake {
+    background: rgba(255, 82, 82, 0.15);
+    color: #ff5252;
+    border: 2px solid #ff5252;
+}
+
+.error {
+    background: rgba(255, 193, 7, 0.15);
+    color: #ffc107;
+    border: 2px solid #ffc107;
+}
+
+.status-dot {
+    display: inline-block;
+
+    width: 12px;
+    height: 12px;
+
+    border-radius: 50%;
+
+    background: currentColor;
+
+    margin-right: 10px;
+}
+
+@media (max-width: 768px) {
+
+    .card {
+        padding: 25px;
+    }
+
+    h1 {
+        font-size: 28px;
+    }
+}

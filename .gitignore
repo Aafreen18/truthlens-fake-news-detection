@@ -1,0 +1,19 @@
+# Datasets
+dataset/
+
+# Python
+venv/
+__pycache__/
+*.pyc
+
+# Trained models
+*.pkl
+
+# Node
+node_modules/
+
+# macOS
+.DS_Store
+
+# Environment files
+.env

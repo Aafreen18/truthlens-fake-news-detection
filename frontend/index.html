@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fake News Detector</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="card">
+
+            <h1>Fake News Detector</h1>
+            <p class="subtitle">
+                Analyze news articles and determine whether they are Real or Fake.
+            </p>
+
+            <div class="input-group">
+                <label>News Title</label>
+                <input
+                    id="title"
+                    type="text"
+                    placeholder="Enter news title">
+            </div>
+
+            <div class="input-group">
+                <label>Article Content</label>
+                <textarea
+                    id="news"
+                    rows="8"
+                    placeholder="Paste the full news article here..."></textarea>
+            </div>
+
+            <button id="predictBtn" onclick="predict()">
+                Analyze News
+            </button>
+
+            <div id="result"></div>
+
+        </div>
+
+    </div>
+
+    <script>
+        async function predict() {
+
+            const title =
+                document.getElementById("title")
+                .value.trim();
+
+            const text =
+                document.getElementById("news")
+                .value.trim();
+
+            if (!title && !text) {
+                alert(
+                    "Please enter a title or article text"
+                );
+                return;
+            }
+
+            const result =
+                document.getElementById("result");
+
+            const btn =
+                document.getElementById("predictBtn");
+
+            btn.innerText = "Analyzing...";
+            btn.disabled = true;
+
+            try {
+
+                const res = await fetch(
+                    "http://localhost:3001/predict",
+                    {
+                        method: "POST",
+                        headers: {
+                            "Content-Type":
+                                "application/json"
+                        },
+                        body: JSON.stringify({
+                            title,
+                            text
+                        })
+                    }
+                );
+
+                if (!res.ok) {
+                    throw new Error(
+                        "Server error"
+                    );
+                }
+
+                const data =
+                    await res.json();
+
+                if (
+                    data.prediction === "real"
+                ) {
+
+                    result.innerHTML = `
+                        <div class="result-card real">
+                            <span class="status-dot"></span>
+                            REAL NEWS
+                        </div>
+                    `;
+
+                } else if (
+                    data.prediction === "fake"
+                ) {
+
+                    result.innerHTML = `
+                        <div class="result-card fake">
+                            <span class="status-dot"></span>
+                            FAKE NEWS
+                        </div>
+                    `;
+
+                } else {
+
+                    throw new Error(
+                        "Invalid prediction"
+                    );
+
+                }
+
+            } catch (err) {
+
+                console.error(err);
+
+                result.innerHTML = `
+                    <div class="result-card error">
+                        Unable to connect to server
+                    </div>
+                `;
+
+            } finally {
+
+                btn.innerText =
+                    "Analyze News";
+
+                btn.disabled = false;
+
+            }
+        }
+    </script>
+
+</body>
+
+</html>
