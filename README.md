@@ -4,7 +4,19 @@
 
 TruthLens is a machine learning-based fake news detection system that classifies news articles as **Real** or **Fake** using Natural Language Processing (NLP) techniques. The system analyzes the textual content of news articles and predicts their authenticity based on patterns learned from large-scale news datasets.
 
-The project combines a Python-based machine learning model with a Node.js backend API and a web-based frontend interface, providing an end-to-end solution for fake news classification.
+The project combines a Python-based machine learning model, a Node.js backend API, and a web-based frontend interface, providing an end-to-end solution for fake news classification.
+
+---
+
+## Live Demo
+
+### Frontend
+
+https://truthlens-fakenews-detector.netlify.app/
+
+### Backend API
+
+https://truthlens-fake-news-detection.onrender.com/
 
 ---
 
@@ -43,6 +55,20 @@ The project combines a Python-based machine learning model with a Node.js backen
 * TF-IDF Vectorization
 * Linear Support Vector Machine (Linear SVM)
 * Joblib
+
+---
+
+## Skills Demonstrated
+
+* Machine Learning
+* Natural Language Processing (NLP)
+* Text Classification
+* Scikit-learn
+* Model Deployment
+* REST API Development
+* Node.js & Express.js
+* Frontend Development
+* Git & GitHub
 
 ---
 
@@ -90,7 +116,59 @@ A Linear Support Vector Machine (Linear SVM) classifier is trained on the proces
 
 Pipeline:
 
-News Article → Text Cleaning → TF-IDF Vectorization → Linear SVM → Prediction
+```text
+News Article
+      ↓
+Text Cleaning
+      ↓
+TF-IDF Vectorization
+      ↓
+Linear SVM
+      ↓
+Prediction
+```
+
+---
+
+## Why Linear SVM?
+
+Linear SVM was selected because:
+
+* Performs well on high-dimensional sparse text data.
+* Works efficiently with TF-IDF features.
+* Faster training and inference compared to many deep learning models.
+* Provides strong baseline performance for fake news classification tasks.
+
+---
+
+## Model Performance
+
+| Metric | Score |
+|----------|----------|
+| Accuracy | 100.00% |
+| Precision | 100.00% |
+| Recall | 100.00% |
+| F1-Score | 100.00% |
+
+*Note: These results were obtained on the selected test split of the combined FakeNewsNet and ISOT datasets. Performance on unseen real-world news data may vary.*
+
+---
+
+## Project Architecture
+
+```text
+Frontend
+   ↓
+Express API
+   ↓
+Python Prediction Service
+   ↓
+TF-IDF Vectorizer
+   ↓
+Linear SVM Model
+   ↓
+Prediction Result
+```
 
 ---
 
@@ -251,13 +329,13 @@ or
 
 ## Deployment
 
-### Backend
+### Frontend (Netlify)
 
-* Render
+https://truthlens-fakenews-detector.netlify.app/
 
-### Frontend
+### Backend (Render)
 
-* Netlify
+https://truthlens-fake-news-detection.onrender.com/
 
 ---
 
